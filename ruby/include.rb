@@ -47,6 +47,11 @@ class UnihanType
     self.setType(type)
   end
 
+
+  def getSyms()
+    @@syms
+  end
+
   def setType(type)
     @resultModifier = nil
     @sym = nil
