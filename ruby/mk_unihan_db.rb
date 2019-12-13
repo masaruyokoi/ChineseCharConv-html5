@@ -12,7 +12,7 @@ class UnihanReadingDb
     @type = UnihanType.new
     @chars = Hash.new
 
-    @outdir = File.realpath(File.dirname(__FILE__)) + "/../dist/"
+    @outdir = File.realpath(File.dirname(__FILE__)) + "/../public/data/"
     #@chars['syms'] = @type.getSyms
     #@chars['data_version'] = '2.1'
   end
@@ -152,3 +152,4 @@ urdb = UnihanReadingDb.new
 urdb.readUnihanZip(dirname + "/../data/Unihan.zip")
 urdb.finalize
 urdb.store2json
+urdb.store2msgpack
