@@ -6,12 +6,13 @@ const dist = path.join(__dirname, "dist");
 
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin')
 
 
 module.exports = {
   context: src,
   mode: 'development',
-  entry: './src/js/ctp.js',
+  entry: ['./js/ctp.js'],
   output: { 
     filename: 'ctp.js',
     path: dist,
@@ -24,10 +25,12 @@ module.exports = {
   },
   module: {
     rules: [
+/*
       {
       	test: /\.js$/, loader: "babel-loader", exclude: /node_modules/,
 	query: { presets: [ ["env", {"targets": {"node": "curent"}}] ] }
       },
+*/
       {test: /\.html$/, loader: "html-loader" }
     ]
   },
@@ -35,6 +38,7 @@ module.exports = {
     new UglifyJSPlugin(),
     new HtmlWebpackPlugin({
       template: "./index.html"
-    })
+    }),
+    new ManifestPlugin(),
   ]
 };
