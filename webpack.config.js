@@ -34,7 +34,7 @@ module.exports = {
   plugins: [
     new UglifyJSPlugin(),
     new HtmlWebpackPlugin({
-      template: "./html/index.html"
+      template: "./index.html"
     })
   ]
 };
