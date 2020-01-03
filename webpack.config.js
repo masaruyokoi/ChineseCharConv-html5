@@ -13,8 +13,7 @@ module.exports = {
   context: src,
   mode: 'development',
   entry: ['./js/ctp.js'],
-  output: { 
-    filename: 'ctp.js',
+  output: {
     path: dist,
     filename: "ctp.min.js"
     //path: path.join(__dirname, 'public/js')
@@ -25,13 +24,8 @@ module.exports = {
   },
   module: {
     rules: [
-/*
-      {
-      	test: /\.js$/, loader: "babel-loader", exclude: /node_modules/,
-	query: { presets: [ ["env", {"targets": {"node": "curent"}}] ] }
-      },
-*/
-      {test: /\.html$/, loader: "html-loader" }
+
+      {test: /\.html$/, loader: "html-loader"}
     ]
   },
   plugins: [
