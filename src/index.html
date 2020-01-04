@@ -1,0 +1,38 @@
+<html manifest="ctp.manifest">
+  <head>
+    <title>Chinese Char Conv</title>
+    <style>
+    /* body, textarea { font-size: 14pt; }*/
+    ruby {
+      padding-width: 1px;
+      border-width: 1px;
+      background-color: #eee;
+    }
+
+    <script src="./ctp.min.js"></script>
+    </style>
+  </head>
+  <body>
+    <h1>Chinese Character converter</h1>
+    <form action="javascript:void()" name="f1">
+    <p class="inputform">
+    <textarea name="txt" cols="40" rows="10" style="width:80%;">
+    </textarea>
+    <br/>Character set:
+    <input type="radio" name="modifier" value="none" checked="yes" />no change
+    <input type="radio" name="modifier" value="Simplified" />简体字
+    <input type="radio" name="modifier" value="Traditional" />繁體字
+    <input type="checkbox" name="printruby" value="true" />Ruby
+    <br/>
+    <input type="button" name="type" value="Mandarin" onClick="changeResult('Mandarin')" />
+    <input type="button" name="type" value="Cantonese" onClick="changeResult('Cantonese')" />
+    <input type="button" name="type" value="Cangjie" onClick="changeResult('CangjieRadical')" />
+    <input type="hidden" name="mode" value="html" />
+    <!-- input type="submit" onClick="changeResult();"/ -->
+    </p>
+    </form>
+    <h2>Output</h2>
+    <p style="width:80%" id="conv_result"> </p>
+
+  </body>
+<html>
