@@ -10,8 +10,8 @@ function readUnihanDb() {
   const req = new XMLHttpRequest();
   req.open('GET', request_url);
   req.responseType = 'json';
-  request.onload = function() {
-    UnihanDb = JSON.parse(req.response);
+  req.onload = function() {
+    UniHanDB = JSON.parse(req.response);
   };
   req.send();
 }
@@ -24,7 +24,8 @@ function getUnihanDB() {
 }
 function UniHanTypeId (typestr) {
   //return UniHanTypes.indexof(typestr);
-  return getUnihanDB().syms.indexof(typestr);
+  getUnihanDB();
+  return UniHanDB.syms.indexof(typestr);
 }
 
 function getEachCharData(str, type) {
@@ -52,7 +53,7 @@ function modifyVariant(str, type) {
   });
 }
 
-function parseText() {
+window.parseAndUpdateText = function parseText(convTo) {
   let text = document.f1.txt.value;
   const modifier = document.f1.modifier.value;
   const showAsRuby = document.f1.printruby.value;
@@ -64,7 +65,7 @@ function parseText() {
     text = modifyVariant(text, "TraditionalVariant");
   }
 
-  const converted = getEachCharData(text);
+  const converted = getEachCharData(text, convTo);
   let toHtml = null;
   if (showAsRuby) {
     toHtml = function(c) {

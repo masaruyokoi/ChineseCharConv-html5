@@ -7,6 +7,8 @@ const dist = path.join(__dirname, "dist");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
+const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+
 
 
 module.exports = {
@@ -24,8 +26,9 @@ module.exports = {
   },
   module: {
     rules: [
-
-      {test: /\.html$/, loader: "html-loader"}
+      {test: /\.html$/, loader: "html-loader"},
+      {test: /\.css$/, use: ['style-loader', 'css-loader']},
+      {test: /\.(gif|png|jpe?g|)$/, use: 'url-loader'}
     ]
   },
   plugins: [
